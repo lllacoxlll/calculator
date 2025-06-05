@@ -33,8 +33,15 @@ childBtns.forEach((childBtn) =>
       operateArray.length = 0
     } else if (buttonVal === '=') {
       let toSplit = display.textContent
-      let operator = toSplit.match(/[-+/*]/)
-      let operateArray = toSplit.split(operator[0])
+      let operator = toSplit.slice(1).match(/[-+/*]/)
+
+      let sliceIndex = operator.index + 1
+
+      let firstSlice = toSplit.slice(0, sliceIndex)
+      let lastSlice = toSplit.slice(sliceIndex + 1)
+
+      operateArray = [firstSlice, lastSlice]
+
       let res = operate(parseFloat(operateArray[0]), operator[0], parseFloat(operateArray[1]))
       display.textContent = res
       operateArray.length = 0
