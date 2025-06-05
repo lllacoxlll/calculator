@@ -59,3 +59,12 @@ body {
 .childButton:hover {
   background-color: darkorange;
 }
+
+.operator {
+  background-color: orangered;
+}
+
+.top-row {
+  background-color: white;
+  opacity: 0.6;
+}
